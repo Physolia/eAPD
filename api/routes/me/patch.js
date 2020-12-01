@@ -4,7 +4,7 @@ const logger = require('../../logger')('me patch route')
 const loggedIn = require('../../middleware').loggedIn;
 
 module.exports = app => {
-  app.patch('/me', loggedIn, async (req, res) => {
+  app.patch('/me', loggedIn, async (req, res, next) => {
     const { stateId } = req.body;
     logger.info({ id: req.id, message: { stateId } });
 
@@ -15,12 +15,16 @@ module.exports = app => {
       })
       .then(state => knex('users')
       .insert({
+        email: req.user.email,
         uid: req.user.id,
         state_id: state.id
       })
-      .onConflict('uid')
+      .onConflict('email')
       .merge()
       .then(() => res.status(200).end()))
-      .catch(() => res.status(400).end())
+      .catch(err => {
+        res.status(400).end()
+        next(err);
+      });
   });
 };
