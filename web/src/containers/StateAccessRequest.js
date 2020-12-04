@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import React, { useState } from 'react';
-import { Dropdown } from '@cmsgov/design-system';
+import { Autocomplete, TextField } from '@cmsgov/design-system';
 
 import AuthenticationForm from '../components/AuthenticationForm';
 import { usStatesDropdownOptions } from '../util/states';
@@ -40,7 +40,7 @@ const StateAccessRequest = ({ action, errorMessage, fetching }) => {
           >
             Select your State Affiliation.
           </label>
-          <Dropdown
+          {/* <Dropdown
             label=""
             ariaLabel="Select your State Affiliation"
             id="states"
@@ -49,7 +49,33 @@ const StateAccessRequest = ({ action, errorMessage, fetching }) => {
             size="medium"
             value={selectedStates}
             onChange={changeStates}
-          />
+          /> */}
+          <Autocomplete
+            items={[
+              {
+                id: 'kRf6c2fY',
+                name: 'Cook County, IL'
+              },
+              {
+                id: 'lYf5cGfM',
+                name: 'Cook County, MD'
+              },
+              {
+                id: 'mZfKcGf9',
+                name: 'Cook County, TN'
+              }
+            ]}
+            onChange={selectedItem => console.log(selectedItem)}
+            onInputValueChange={inputVal =>
+              console.log('[Autocomplete]: ' + inputVal)
+            }
+          >
+            <TextField
+              hint="Type c then use ARROW keys to change options, ENTER key to make a selection, ESC to dismiss."
+              label="Simple list"
+              name="Downshift_autocomplete"
+            />
+          </Autocomplete>
         </div>
       </AuthenticationForm>
     </div>
