@@ -1,5 +1,5 @@
 const { jwtExtractor, verifyWebToken } = require('./jwtUtils');
-const { getUserByID: gu } = require('../db');
+// const { getUserByID: gu } = require('../db');
 const logger = require('../logger')('jwt middleware');
 
 /**
@@ -16,11 +16,7 @@ const jwtMiddleware = async (
   req,
   res,
   next,
-  {
-    getUserByID = gu,
-    extractor = jwtExtractor,
-    verifyToken = verifyWebToken
-  } = {}
+  { extractor = jwtExtractor, verifyToken = verifyWebToken } = {}
 ) => {
   const jwt = extractor(req);
   try {
@@ -31,9 +27,11 @@ const jwtMiddleware = async (
     // are returned by the claims for conviences, but not retrieved
     // by the standard getUser call to Okta, so these values should
     // be passed in as additional values when possible.
-    const { uid, ...additionalValues } = claims;
-    const user = await getUserByID(uid, { additionalValues });
+    // const { uid, ...additionalValues } = claims;
+    // const user = await getUserByID(uid, { additionalValues });
     // const user = claims;
+    const user = claims;
+    logger.info(`user: ${JSON.stringify(user)}`);
     if (user) {
       req.user = user;
     }
