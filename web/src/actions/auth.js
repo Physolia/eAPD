@@ -80,23 +80,38 @@ const loadData = activities => dispatch => {
   }
 };
 
-const getCurrentUser = () => dispatch =>
-  axios
-    .get('/me')
-    .then(userRes => {
-      if (userRes.data.states.length === 0) {
-        dispatch(requestAccessToState());
-      }
-      if (userRes.data.activities) {
-        dispatch(loadData(userRes.data.activities));
-      }
-      dispatch(completeLogin(userRes.data));
-      dispatch(resetLocked());
+const getCurrentUser = () => dispatch => {
+  dispatch(requestAccessToState());
+
+  dispatch(
+    completeLogin({
+      id: '12345',
+      email: 'bypass@email.com',
+      name: 'Bypass User',
+      position: '',
+      state: null,
+      states: [],
+      activities: []
     })
-    .catch(error => {
-      const reason = error ? error.message : 'N/A';
-      dispatch(failLogin(reason));
-    });
+  );
+  dispatch(resetLocked());
+};
+// axios
+//   .get('/me')
+//   .then(userRes => {
+//     if (userRes.data.states.length === 0) {
+//       dispatch(requestAccessToState());
+//     }
+//     if (userRes.data.activities) {
+//       dispatch(loadData(userRes.data.activities));
+//     }
+//     dispatch(completeLogin(userRes.data));
+//     dispatch(resetLocked());
+//   })
+//   .catch(error => {
+//     const reason = error ? error.message : 'N/A';
+//     dispatch(failLogin(reason));
+//   });
 
 export const mfaConfig = (mfaSelected, phoneNumber) => async dispatch => {
   const factor = await getFactor(mfaSelected);
@@ -215,14 +230,36 @@ export const logout = () => dispatch => {
   dispatch(completeLogout());
 };
 
-export const checkAuth = () => dispatch => {
+export const checkAuth = () => (dispatch, getState) => {
   dispatch(requestAuthCheck());
 
-  return axios
-    .get('/me')
-    .then(req => {
-      dispatch(completeAuthCheck(req.data));
-      dispatch(loadData(req.data.activities));
-    })
-    .catch(() => dispatch(failAuthCheck()));
+  const {
+    auth: { hasEverLoggedOn = false }
+  } = getState();
+  console.log({ hasEverLoggedOn });
+
+  if (hasEverLoggedOn) {
+    dispatch(
+      completeAuthCheck({
+        id: '12345',
+        email: 'bypass@email.com',
+        name: 'Bypass User',
+        position: '',
+        state: null,
+        states: [],
+        activities: []
+      })
+    );
+    dispatch(loadData([]));
+  }
+
+  dispatch(failAuthCheck());
+
+  // return axios
+  //   .get('/me')
+  //   .then(req => {
+  //     dispatch(completeAuthCheck(req.data));
+  //     dispatch(loadData(req.data.activities));
+  //   })
+  //   .catch(() => dispatch(failAuthCheck()));
 };
