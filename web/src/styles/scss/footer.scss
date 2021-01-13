@@ -5,8 +5,19 @@ footer {
   margin-top: $spacer-6;
   z-index: 10;
 
-  img {
-    max-width: 100%;
+  .footer--logo-container {
+    display: flex;
+    align-items: center;
+    img {
+      width: 100%; /* fix for IE */
+      max-width: 180px;
+    }
+  }
+
+  .hhs-logo {
+    float: left;
+    height: 100px;
+    margin-right: $spacer-4;
   }
 
   .footer--banner {
