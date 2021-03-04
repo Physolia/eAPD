@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 import Icon, { faUserCog, faUserPlus } from '../../components/Icons';
 
-const AdminDashboard = () => {
+const FederalAdmin = () => {
   return (
     <Fragment>
       <div className="site-body ds-l-container">
@@ -50,4 +50,4 @@ const AdminDashboard = () => {
   );
 };
 
-export default AdminDashboard;
+export default FederalAdmin;

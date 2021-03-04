@@ -3,7 +3,7 @@ export const getIsAdmin = ({
     data: { role }
   }
 }) => {
-  return role === 'admin';
+  return role === 'eAPD Federal Admin';
 };
 
 export const getUserStateOrTerritory = ({
