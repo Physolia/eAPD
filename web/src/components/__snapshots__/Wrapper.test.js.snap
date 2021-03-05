@@ -41,7 +41,7 @@ exports[`Wrapper component renders correctly in non-dev mode 1`] = `
 
 exports[`Wrapper component sets the appropriate CSS class if we are on a "gray" path renders correctly for the /create-account path 1`] = `
 <div
-  className="site site--gray"
+  className="site"
 >
   <Connect(Header)
     showSiteTitle={false}
@@ -54,7 +54,7 @@ exports[`Wrapper component sets the appropriate CSS class if we are on a "gray" 
 
 exports[`Wrapper component sets the appropriate CSS class if we are on a "gray" path renders correctly for the /edit-account path 1`] = `
 <div
-  className="site site--gray"
+  className="site"
 >
   <Connect(Header)
     showSiteTitle={false}

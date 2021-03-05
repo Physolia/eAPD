@@ -44,34 +44,6 @@ exports[`Routes component renders correctly 1`] = `
     key="/print"
     path="/print"
   />
-  <Connect(AdminRoute)
-    component={
-      Object {
-        "$$typeof": Symbol(react.memo),
-        "WrappedComponent": [Function],
-        "compare": null,
-        "displayName": "Connect(CreateAccount)",
-        "type": [Function],
-      }
-    }
-    isCard={true}
-    key="/create-account"
-    path="/create-account"
-  />
-  <Connect(AdminRoute)
-    component={
-      Object {
-        "$$typeof": Symbol(react.memo),
-        "WrappedComponent": [Function],
-        "compare": null,
-        "displayName": "Connect(EditAccount)",
-        "type": [Function],
-      }
-    }
-    isCard={true}
-    key="/edit-account"
-    path="/edit-account"
-  />
   <Connect(PrivateRoute)
     component={
       Object {
@@ -84,6 +56,11 @@ exports[`Routes component renders correctly 1`] = `
     }
     key="/state-admin"
     path="/state-admin"
+  />
+  <Connect(PrivateRoute)
+    component={[Function]}
+    key="/federal-admin"
+    path="/federal-admin"
   />
   <Route
     component={

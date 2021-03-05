@@ -2,10 +2,10 @@
 
 exports[`NoMatch component renders correctly 1`] = `
 <div
-  className="py3 center"
+  className="ds-l-container ds-u-margin-top--6"
 >
   <h1
-    className="mb1"
+    className="ds-u-margin-bottom--0"
   >
     Whoops, we can’t find that page.
   </h1>
