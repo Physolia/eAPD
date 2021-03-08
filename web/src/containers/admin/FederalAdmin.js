@@ -20,27 +20,11 @@ import {
 
 // import { getUserStateOrTerritory } from '../../reducers/user.selector';
 
-import ManageRoleDialog from './ManageRoleDialog';
-import ConfirmationDialog from './ConfirmationDialog';
-import ManageUserTable from './ManageUserTable';
 
 const FederalAdmin = ({
 
 }) => {
   const [activeTab, setActiveTab] = useState('pending');
-  const [isFetching, setIsFetching] = useState(true);
-  const [isDenied, setIsDenied] = useState(true);
-
-  const [selectedAffiliation, setSelectedAffiliation] = useState();
-
-  const [manageModalDisplay, setManageModalDisplay] = useState(false);
-  const [confirmationModalDisplay, setConfirmationModalDisplay] = useState(
-    false
-  );
-
-  useEffect(() => {
-
-  }, []);
 
   useEffect(() => {
 
@@ -50,28 +34,14 @@ const FederalAdmin = ({
     setActiveTab(id);
   };
 
-  const showManageModal = event => {
-
+  const approveStateAdmin = event => {
+    console.log("approved hit");
+    console.log("event", event.target);
   };
-
-  const hideManageModal = () => {
-    setManageModalDisplay(false);
-  };
-
-  const handleAffiliationUpdate = roleId => {
-
-  };
-
-  const showConfirmationModal = event => {
-
-  };
-
-  const hideConfirmationModal = () => {
-    setConfirmationModalDisplay(false);
-  };
-
-  const handleDenyOrRevoke = () => {
-
+  
+  const denyStateAdmin = event => {
+    console.log("deny hit");
+    console.log("event", event.target);
   };
 
   return (
@@ -80,57 +50,29 @@ const FederalAdmin = ({
       className="ds-l-container ds-u-margin-bottom--5"
     >
       <h1>eAPD Federal Administrator Portal</h1>
-      <h2>State Administrator Requests</h2>
       <Tabs onChange={currentTab}>
-        <TabPanel id="pending" tab="Requests">
+        <TabPanel id="pending" tab="State Admin Requests">
           <Table borderless>
-          <TableHead>
-            <TableRow>
-              <TableCell>Name</TableCell>
-              <TableCell>Email</TableCell>
-              <TableCell>Phone Number</TableCell>
-              <TableCell>State</TableCell>
-              <TableCell>Actions</TableCell>
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            <TableRow>
-              <TableCell>Tif Forkner</TableCell>
-              <TableCell>tif@fearless.tech</TableCell>
-              <TableCell>
-                <a href="# ">4108675309</a>
-              </TableCell>
-              <TableCell>Maryland</TableCell>
-              <TableCell>
-                <Button
-                  onClick={showManageModal}
-                  size="small"
-                  className="ds-u-margin-right--2"
-                  key="action1"
-                >
-                  Approve
-                </Button>
-                <Button
-                  onClick={showConfirmationModal}
-                  size="small"
-                  variation="danger"
-                  data-deny-or-revoke="deny"
-                  key="action2"
-                >
-                  Deny
-                </Button>
-              </TableCell>
-            </TableRow>
-            <TableRow>
-              <TableCell>Ty Bolt</TableCell>
-              <TableCell>tbolt@fearless.tech</TableCell>
-              <TableCell>
-                <a href="# ">4108675309</a>
-              </TableCell>
-              <TableCell>New York</TableCell>
-              <TableCell>
-                <Button
-                    onClick={showManageModal}
+            <TableHead>
+              <TableRow>
+                <TableCell>Name</TableCell>
+                <TableCell>Email</TableCell>
+                <TableCell>Phone Number</TableCell>
+                <TableCell>State</TableCell>
+                <TableCell>Actions</TableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              <TableRow>
+                <TableCell>Tif Forkner</TableCell>
+                <TableCell>tif@fearless.tech</TableCell>
+                <TableCell>
+                  <a href="# ">4108675309</a>
+                </TableCell>
+                <TableCell>Maryland</TableCell>
+                <TableCell>
+                  <Button
+                    onClick={approveStateAdmin}
                     size="small"
                     className="ds-u-margin-right--2"
                     key="action1"
@@ -138,7 +80,7 @@ const FederalAdmin = ({
                     Approve
                   </Button>
                   <Button
-                    onClick={showConfirmationModal}
+                    onClick={denyStateAdmin}
                     size="small"
                     variation="danger"
                     data-deny-or-revoke="deny"
@@ -146,32 +88,105 @@ const FederalAdmin = ({
                   >
                     Deny
                   </Button>
-              </TableCell>
-            </TableRow>
-          </TableBody>
-        </Table>
+                </TableCell>
+              </TableRow>
+              <TableRow>
+                <TableCell>Ty Bolt</TableCell>
+                <TableCell>tbolt@fearless.tech</TableCell>
+                <TableCell>
+                  <a href="# ">4108675309</a>
+                </TableCell>
+                <TableCell>New York</TableCell>
+                <TableCell>
+                  <Button
+                      onClick={approveStateAdmin}
+                      size="small"
+                      className="ds-u-margin-right--2"
+                      key="action1"
+                    >
+                      Approve
+                    </Button>
+                    <Button
+                      onClick={denyStateAdmin}
+                      size="small"
+                      variation="danger"
+                      data-deny-or-revoke="deny"
+                      key="action2"
+                    >
+                      Deny
+                    </Button>
+                </TableCell>
+              </TableRow>
+            </TableBody>
+          </Table>
         </TabPanel>
         <TabPanel id="active" tab="Active">
-
+        <Table borderless>
+            <TableHead>
+              <TableRow>
+                <TableCell>Name</TableCell>
+                <TableCell>Email</TableCell>
+                <TableCell>Phone Number</TableCell>
+                <TableCell>State</TableCell>
+                <TableCell>Actions</TableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              <TableRow>
+                <TableCell>Ty Bolt</TableCell>
+                <TableCell>tbolt@fearless.tech</TableCell>
+                <TableCell>
+                  <a href="# ">4108675309</a>
+                </TableCell>
+                <TableCell>New York</TableCell>
+                <TableCell>
+                  <Button
+                      onClick={denyStateAdmin}
+                      size="small"
+                      className="ds-u-margin-right--2"
+                      key="action1"
+                    >
+                      Revoke
+                    </Button>
+                </TableCell>
+              </TableRow>
+            </TableBody>
+          </Table>
         </TabPanel>
         <TabPanel id="inactive" tab="Inactive">
-
+          <Table borderless>
+              <TableHead>
+                <TableRow>
+                  <TableCell>Name</TableCell>
+                  <TableCell>Email</TableCell>
+                  <TableCell>Phone Number</TableCell>
+                  <TableCell>State</TableCell>
+                  <TableCell>Actions</TableCell>
+                </TableRow>
+              </TableHead>
+              <TableBody>
+                <TableRow>
+                  <TableCell>Ty Bolt</TableCell>
+                  <TableCell>tbolt@fearless.tech</TableCell>
+                  <TableCell>
+                    <a href="# ">4108675309</a>
+                  </TableCell>
+                  <TableCell>New York</TableCell>
+                  <TableCell>
+                    <Button
+                        onClick={approveStateAdmin}
+                        size="small"
+                        className="ds-u-margin-right--2"
+                        key="action1"
+                      >
+                        Reinstate
+                      </Button>
+                  </TableCell>
+                </TableRow>
+              </TableBody>
+            </Table>
         </TabPanel>
       </Tabs>
-
-      {confirmationModalDisplay && (
-        <ConfirmationDialog
-          hideConfirmationModal={hideConfirmationModal}
-          showConfirmationModal={showConfirmationModal}
-        />
-      )}
-
-      {manageModalDisplay && (
-        <ManageRoleDialog
-          hideManageModal={hideManageModal}
-          showManageModal={showManageModal}
-        />
-      )}
     </main>
   );
 };
