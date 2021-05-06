@@ -16,11 +16,11 @@ const apd = {
             end: '',
             hourly: {
               data: {
-                '2020': {
+                2020: {
                   hours: '',
                   rate: ''
                 },
-                '2021': {
+                2021: {
                   hours: '',
                   rate: ''
                 }
@@ -31,8 +31,8 @@ const apd = {
             start: '',
             totalCost: 32423,
             years: {
-              '2020': 999756,
-              '2021': 342444
+              2020: 999756,
+              2021: 342444
             }
           },
           {
@@ -40,11 +40,11 @@ const apd = {
             end: '',
             hourly: {
               data: {
-                '2020': {
+                2020: {
                   hours: '',
                   rate: ''
                 },
-                '2021': {
+                2021: {
                   hours: '',
                   rate: ''
                 }
@@ -54,18 +54,18 @@ const apd = {
             name: 'Tech Consulting Inc.',
             start: '',
             totalCost: 473573,
-            years: { '2020': 333000, '2021': 200000 }
+            years: { 2020: 333000, 2021: 200000 }
           }
         ],
         costAllocation: {
-          '2020': {
+          2020: {
             ffp: {
               federal: 90,
               state: 10
             },
             other: 0
           },
-          '2021': {
+          2021: {
             ffp: {
               federal: 90,
               state: 10
@@ -76,13 +76,15 @@ const apd = {
         costAllocationNarrative: {
           methodology:
             '<p>No cost allocation is necessary for this activity.</p>\n',
-          '2020': {
-            otherSources:
-              '<p>No other funding is provided for this activity for FFY 2020.</p>\n'
-          },
-          '2021': {
-            otherSources:
-              '<p>No other funding is provided for this activity for FFY 2021.</p>\n'
+          years: {
+            2020: {
+              otherSources:
+                '<p>No other funding is provided for this activity for FFY 2020.</p>\n'
+            },
+            2021: {
+              otherSources:
+                '<p>No other funding is provided for this activity for FFY 2021.</p>\n'
+            }
           }
         },
         description:
@@ -91,17 +93,17 @@ const apd = {
           {
             description: '',
             category: 'Training and outreach',
-            years: { '2020': 40000, '2021': 40000 }
+            years: { 2020: 40000, 2021: 40000 }
           },
           {
             description: '',
             category: 'Travel',
-            years: { '2020': 35000, '2021': 35000 }
+            years: { 2020: 35000, 2021: 35000 }
           },
           {
             description: '',
             category: 'Hardware, software, and licensing',
-            years: { '2020': 700000, '2021': 0 }
+            years: { 2020: 700000, 2021: 0 }
           }
         ],
         fundingSource: 'HIT',
@@ -162,8 +164,8 @@ const apd = {
             description:
               'Coordination and document management support daily administrative support such as meeting minutes and scribe, manages project library, scheduling, and correspondence tracking.',
             years: {
-              '2020': { amt: 86000, perc: 1 },
-              '2021': { amt: 88000, perc: 1 }
+              2020: { amt: 86000, perc: 1 },
+              2021: { amt: 88000, perc: 1 }
             }
           },
           {
@@ -172,8 +174,8 @@ const apd = {
             description:
               'Develop and monitor reports, assist data users in developing and managing queries.',
             years: {
-              '2020': { amt: 101115, perc: 1 },
-              '2021': { amt: 102111, perc: 1 }
+              2020: { amt: 101115, perc: 1 },
+              2021: { amt: 102111, perc: 1 }
             }
           },
           {
@@ -181,8 +183,8 @@ const apd = {
             description:
               'Provide analysis and coordination activities between the HIT Program Office and the IT section, to ensure that adequate resources and priority are established to complete the technology projects as identified.',
             years: {
-              '2020': { amt: 101000, perc: 1 },
-              '2021': { amt: 104000, perc: 1 }
+              2020: { amt: 101000, perc: 1 },
+              2021: { amt: 104000, perc: 1 }
             }
           },
           {
@@ -190,8 +192,8 @@ const apd = {
             description:
               'Coordinate program state and federal budget and expense reporting, review and validate charges to CMS federal reports.',
             years: {
-              '2020': { amt: 101000, perc: 3 },
-              '2021': { amt: 109000, perc: 3 }
+              2020: { amt: 101000, perc: 3 },
+              2021: { amt: 109000, perc: 3 }
             }
           },
           {
@@ -199,8 +201,8 @@ const apd = {
             description:
               'Develop outreach materials including: written, television and radio publications to support outreach for the Medicaid EHR Incentive Program',
             years: {
-              '2020': { amt: 165000, perc: 0.5 },
-              '2021': { amt: 170000, perc: 0.5 }
+              2020: { amt: 165000, perc: 0.5 },
+              2021: { amt: 170000, perc: 0.5 }
             }
           },
           {
@@ -208,8 +210,8 @@ const apd = {
             description:
               'Coordinate office resources, manage staff, budget, and resource assignments, and report program status.',
             years: {
-              '2020': { amt: 135000, perc: 0.5 },
-              '2021': { amt: 140000, perc: 0.5 }
+              2020: { amt: 135000, perc: 0.5 },
+              2021: { amt: 140000, perc: 0.5 }
             }
           },
           {
@@ -218,8 +220,8 @@ const apd = {
             description:
               'Data collection and analysis, reporting, planning, service delivery modification, support administration of the EHR Incentive Payment Program including provider application review.',
             years: {
-              '2020': { amt: 110012, perc: 1 },
-              '2021': { amt: 111102, perc: 1 }
+              2020: { amt: 110012, perc: 1 },
+              2021: { amt: 111102, perc: 1 }
             }
           },
           {
@@ -227,25 +229,25 @@ const apd = {
             description:
               'Supports design, development and implementation of information technology infrastructure for the projects/programs under the IT Planning office supported by this Implementation Advanced Planning Document.',
             years: {
-              '2020': { amt: 98987, perc: 4 },
-              '2021': { amt: 99897, perc: 4 }
+              2020: { amt: 98987, perc: 4 },
+              2021: { amt: 99897, perc: 4 }
             }
           }
         ],
         summary:
           'Continued Operations of the Medicaid EHR Incentive Payment Program, includes modifications to the SLR, HIT staff, auditing, outreach, and non-personnel expenses for administering the program.',
         quarterlyFFP: {
-          '2020': {
-            '1': { combined: 25, contractors: 25, inHouse: 25 },
-            '2': { combined: 25, contractors: 25, inHouse: 25 },
-            '3': { combined: 25, contractors: 25, inHouse: 25 },
-            '4': { combined: 25, contractors: 25, inHouse: 25 }
+          2020: {
+            1: { combined: 25, contractors: 25, inHouse: 25 },
+            2: { combined: 25, contractors: 25, inHouse: 25 },
+            3: { combined: 25, contractors: 25, inHouse: 25 },
+            4: { combined: 25, contractors: 25, inHouse: 25 }
           },
-          '2021': {
-            '1': { combined: 25, contractors: 25, inHouse: 25 },
-            '2': { combined: 25, contractors: 25, inHouse: 25 },
-            '3': { combined: 25, contractors: 25, inHouse: 25 },
-            '4': { combined: 25, contractors: 25, inHouse: 25 }
+          2021: {
+            1: { combined: 25, contractors: 25, inHouse: 25 },
+            2: { combined: 25, contractors: 25, inHouse: 25 },
+            3: { combined: 25, contractors: 25, inHouse: 25 },
+            4: { combined: 25, contractors: 25, inHouse: 25 }
           }
         }
       },
@@ -258,11 +260,11 @@ const apd = {
             end: '',
             hourly: {
               data: {
-                '2020': {
+                2020: {
                   hours: '',
                   rate: ''
                 },
-                '2021': {
+                2021: {
                   hours: '',
                   rate: ''
                 }
@@ -273,18 +275,18 @@ const apd = {
             name: 'Interface Vendor Inc.',
             start: '',
             totalCost: 26453574,
-            years: { '2020': 650000, '2021': 750000 }
+            years: { 2020: 650000, 2021: 750000 }
           },
           {
             description: 'Interface M&O contractor.',
             end: '',
             hourly: {
               data: {
-                '2020': {
+                2020: {
                   hours: '',
                   rate: ''
                 },
-                '2021': {
+                2021: {
                   hours: '',
                   rate: ''
                 }
@@ -294,18 +296,18 @@ const apd = {
             name: 'TBD',
             start: '',
             totalCost: 7398,
-            years: { '2020': 0, '2021': 1000000 }
+            years: { 2020: 0, 2021: 1000000 }
           }
         ],
         costAllocation: {
-          '2020': {
+          2020: {
             ffp: {
               federal: 90,
               state: 10
             },
             other: 0
           },
-          '2021': {
+          2021: {
             ffp: {
               federal: 75,
               state: 25
@@ -316,11 +318,11 @@ const apd = {
         costAllocationNarrative: {
           methodology:
             '<p>No cost allocation is necessary for this activity.</p>\n',
-          '2020': {
+          2020: {
             otherSources:
               '<p>No other funding is provided for this activity for FFY 2020.</p>\n'
           },
-          '2021': {
+          2021: {
             otherSources:
               '<p>No other funding is provided for this activity for FFY 2021.</p>\n'
           }
@@ -331,7 +333,7 @@ const apd = {
           {
             description: '',
             category: 'Travel',
-            years: { '2020': 0, '2021': 0 }
+            years: { 2020: 0, 2021: 0 }
           }
         ],
         fundingSource: 'MMIS',
@@ -372,8 +374,8 @@ const apd = {
             title: 'Project Assistant',
             description: 'Assist with stuff',
             years: {
-              '2020': { amt: 98000, perc: 1 },
-              '2021': { amt: 99000, perc: 1 }
+              2020: { amt: 98000, perc: 1 },
+              2021: { amt: 99000, perc: 1 }
             }
           },
           {
@@ -381,8 +383,8 @@ const apd = {
             description:
               'This position is responsible for the program development, planning, coordination, evaluation, independent management and oversight of the Tycho Automated Info',
             years: {
-              '2020': { amt: 140000, perc: 1 },
-              '2021': { amt: 144000, perc: 1 }
+              2020: { amt: 140000, perc: 1 },
+              2021: { amt: 144000, perc: 1 }
             }
           },
           {
@@ -390,8 +392,8 @@ const apd = {
             description:
               'Under the direct supervision of the Project Manager, this position is responsible for the development of a comprehensive training and support program for the Tycho Automated Information Management System',
             years: {
-              '2020': { amt: 115000, perc: 1 },
-              '2021': { amt: 115000, perc: 1 }
+              2020: { amt: 115000, perc: 1 },
+              2021: { amt: 115000, perc: 1 }
             }
           },
           {
@@ -399,24 +401,24 @@ const apd = {
             description:
               'The main purpose of this position is to develop and support Web and Client/Server applications. Duties include analysis, design, testing, debugging, documenting and supporting new and existing systems',
             years: {
-              '2020': { amt: 140000, perc: 1 },
-              '2021': { amt: 145000, perc: 1 }
+              2020: { amt: 140000, perc: 1 },
+              2021: { amt: 145000, perc: 1 }
             }
           },
           {
             title: 'Security IT',
             description: 'Make sure its secure.',
             years: {
-              '2020': { amt: 115000, perc: 1 },
-              '2021': { amt: 120000, perc: 1 }
+              2020: { amt: 115000, perc: 1 },
+              2021: { amt: 120000, perc: 1 }
             }
           },
           {
             title: 'Operations Specialist',
             description: 'Run the day to day.',
             years: {
-              '2020': { amt: 125000, perc: 1 },
-              '2021': { amt: 130000, perc: 1 }
+              2020: { amt: 125000, perc: 1 },
+              2021: { amt: 130000, perc: 1 }
             }
           },
           {
@@ -424,8 +426,8 @@ const apd = {
             description:
               'The main purpose of this position is to develop and support Web and Client/Server applications. Duties include analysis, design, testing, debugging, documenting and supporting new and existing systems',
             years: {
-              '2020': { amt: 150000, perc: 2 },
-              '2021': { amt: 155000, perc: 3 }
+              2020: { amt: 150000, perc: 2 },
+              2021: { amt: 155000, perc: 3 }
             }
           },
           {
@@ -433,25 +435,25 @@ const apd = {
             description:
               'The main purpose of this position is to develop and support Web and Client/Server applications. Duties include analysis, design, testing, debugging, documenting and supporting new and existing systems',
             years: {
-              '2020': { amt: 120000, perc: 1 },
-              '2021': { amt: 125000, perc: 1 }
+              2020: { amt: 120000, perc: 1 },
+              2021: { amt: 125000, perc: 1 }
             }
           }
         ],
         summary:
           'To provide healthcare statistical information and support MU, Tycho plans to interface the MMIS Data Warehouse (DW) to the HIE so that Medicaid claims data can be made available to consumers in their Personal Health Record (PHR) within the HIE. ',
         quarterlyFFP: {
-          '2020': {
-            '1': { combined: 25, contractors: 25, inHouse: 25 },
-            '2': { combined: 25, contractors: 25, inHouse: 25 },
-            '3': { combined: 25, contractors: 25, inHouse: 25 },
-            '4': { combined: 25, contractors: 25, inHouse: 25 }
+          2020: {
+            1: { combined: 25, contractors: 25, inHouse: 25 },
+            2: { combined: 25, contractors: 25, inHouse: 25 },
+            3: { combined: 25, contractors: 25, inHouse: 25 },
+            4: { combined: 25, contractors: 25, inHouse: 25 }
           },
-          '2021': {
-            '1': { combined: 25, contractors: 25, inHouse: 25 },
-            '2': { combined: 25, contractors: 25, inHouse: 25 },
-            '3': { combined: 25, contractors: 25, inHouse: 25 },
-            '4': { combined: 25, contractors: 25, inHouse: 25 }
+          2021: {
+            1: { combined: 25, contractors: 25, inHouse: 25 },
+            2: { combined: 25, contractors: 25, inHouse: 25 },
+            3: { combined: 25, contractors: 25, inHouse: 25 },
+            4: { combined: 25, contractors: 25, inHouse: 25 }
           }
         }
       },
@@ -464,8 +466,8 @@ const apd = {
             end: '',
             hourly: {
               data: {
-                '2020': { hours: '', rate: '' },
-                '2021': { hours: '', rate: '' }
+                2020: { hours: '', rate: '' },
+                2021: { hours: '', rate: '' }
               },
               useHourly: false
             },
@@ -473,18 +475,18 @@ const apd = {
             name: '',
             start: '',
             totalCost: 3496874,
-            years: { '2020': 0, '2021': 0 }
+            years: { 2020: 0, 2021: 0 }
           }
         ],
         costAllocation: {
-          '2020': {
+          2020: {
             ffp: {
               federal: 90,
               state: 10
             },
             other: 0
           },
-          '2021': {
+          2021: {
             ffp: {
               federal: 90,
               state: 10
@@ -494,10 +496,10 @@ const apd = {
         },
         costAllocationNarrative: {
           methodology: '',
-          '2020': {
+          2020: {
             otherSources: ''
           },
-          '2021': {
+          2021: {
             otherSources: ''
           }
         },
@@ -507,7 +509,7 @@ const apd = {
           {
             description: '',
             category: 'Hardware, software, and licensing',
-            years: { '2020': 0, '2021': 0 }
+            years: { 2020: 0, 2021: 0 }
           }
         ],
         fundingSource: 'HIE',
@@ -592,24 +594,24 @@ const apd = {
             description:
               'Lead technical architecture design and development efforts for designing, implementing and maintaining services integrations leveraging resources such as the MCI, MPI and state HIE along with other DHSS Business Systems.',
             years: {
-              '2020': { amt: 115000, perc: 4 },
-              '2021': { amt: 119000, perc: 4 }
+              2020: { amt: 115000, perc: 4 },
+              2021: { amt: 119000, perc: 4 }
             }
           }
         ],
         summary: 'Statewide HIE enhancement and onboarding.',
         quarterlyFFP: {
-          '2020': {
-            '1': { combined: 25, contractors: 25, inHouse: 25 },
-            '2': { combined: 25, contractors: 25, inHouse: 25 },
-            '3': { combined: 25, contractors: 25, inHouse: 25 },
-            '4': { combined: 25, contractors: 25, inHouse: 25 }
+          2020: {
+            1: { combined: 25, contractors: 25, inHouse: 25 },
+            2: { combined: 25, contractors: 25, inHouse: 25 },
+            3: { combined: 25, contractors: 25, inHouse: 25 },
+            4: { combined: 25, contractors: 25, inHouse: 25 }
           },
-          '2021': {
-            '1': { combined: 25, contractors: 25, inHouse: 25 },
-            '2': { combined: 25, contractors: 25, inHouse: 25 },
-            '3': { combined: 25, contractors: 25, inHouse: 25 },
-            '4': { combined: 25, contractors: 25, inHouse: 25 }
+          2021: {
+            1: { combined: 25, contractors: 25, inHouse: 25 },
+            2: { combined: 25, contractors: 25, inHouse: 25 },
+            3: { combined: 25, contractors: 25, inHouse: 25 },
+            4: { combined: 25, contractors: 25, inHouse: 25 }
           }
         }
       },
@@ -622,41 +624,41 @@ const apd = {
             end: '',
             hourly: {
               data: {
-                '2020': { hours: '', rate: '' },
-                '2021': { hours: '', rate: '' }
+                2020: { hours: '', rate: '' },
+                2021: { hours: '', rate: '' }
               },
               useHourly: false
             },
             name: 'RFP Planning Vendor Inc.',
             start: '',
             totalCost: 4368734,
-            years: { '2020': 500000, '2021': 0 }
+            years: { 2020: 500000, 2021: 0 }
           },
           {
             description: '',
             end: '',
             hourly: {
               data: {
-                '2020': { hours: '', rate: '' },
-                '2021': { hours: '', rate: '' }
+                2020: { hours: '', rate: '' },
+                2021: { hours: '', rate: '' }
               },
               useHourly: false
             },
             name: 'Blue Button Builder Inc.',
             start: '',
             totalCost: 35246,
-            years: { '2020': 0, '2021': 2000000 }
+            years: { 2020: 0, 2021: 2000000 }
           }
         ],
         costAllocation: {
-          '2020': {
+          2020: {
             ffp: {
               federal: 90,
               state: 10
             },
             other: 0
           },
-          '2021': {
+          2021: {
             ffp: {
               federal: 90,
               state: 10
@@ -666,10 +668,10 @@ const apd = {
         },
         costAllocationNarrative: {
           methodology: '',
-          '2020': {
+          2020: {
             otherSources: ''
           },
-          '2021': {
+          2021: {
             otherSources: ''
           }
         },
@@ -679,7 +681,7 @@ const apd = {
           {
             description: '',
             category: 'Hardware, software, and licensing',
-            years: { '2020': 0, '2021': 0 }
+            years: { 2020: 0, 2021: 0 }
           }
         ],
         fundingSource: 'HIE',
@@ -719,25 +721,25 @@ const apd = {
             title: '',
             description: '',
             years: {
-              '2020': { amt: 0, perc: 0 },
-              '2021': { amt: 0, perc: 0 }
+              2020: { amt: 0, perc: 0 },
+              2021: { amt: 0, perc: 0 }
             }
           }
         ],
         summary:
           'DHSS is requesting HITECH funding to support the onboarding of Medicaid recipients to the developed personal health record (PHR) available within the HIE.',
         quarterlyFFP: {
-          '2020': {
-            '1': { combined: 25, contractors: 25, inHouse: 25 },
-            '2': { combined: 25, contractors: 25, inHouse: 25 },
-            '3': { combined: 25, contractors: 25, inHouse: 25 },
-            '4': { combined: 25, contractors: 25, inHouse: 25 }
+          2020: {
+            1: { combined: 25, contractors: 25, inHouse: 25 },
+            2: { combined: 25, contractors: 25, inHouse: 25 },
+            3: { combined: 25, contractors: 25, inHouse: 25 },
+            4: { combined: 25, contractors: 25, inHouse: 25 }
           },
-          '2021': {
-            '1': { combined: 25, contractors: 25, inHouse: 25 },
-            '2': { combined: 25, contractors: 25, inHouse: 25 },
-            '3': { combined: 25, contractors: 25, inHouse: 25 },
-            '4': { combined: 25, contractors: 25, inHouse: 25 }
+          2021: {
+            1: { combined: 25, contractors: 25, inHouse: 25 },
+            2: { combined: 25, contractors: 25, inHouse: 25 },
+            3: { combined: 25, contractors: 25, inHouse: 25 },
+            4: { combined: 25, contractors: 25, inHouse: 25 }
           }
         }
       },
@@ -750,11 +752,11 @@ const apd = {
             end: '',
             hourly: {
               data: {
-                '2020': {
+                2020: {
                   hours: '',
                   rate: ''
                 },
-                '2021': {
+                2021: {
                   hours: '',
                   rate: ''
                 }
@@ -764,18 +766,18 @@ const apd = {
             name: 'TBD',
             start: '',
             totalCost: 246477,
-            years: { '2020': 0, '2021': 1500000 }
+            years: { 2020: 0, 2021: 1500000 }
           },
           {
             description: 'Gateway Development Planning and RFP',
             end: '',
             hourly: {
               data: {
-                '2020': {
+                2020: {
                   hours: '',
                   rate: ''
                 },
-                '2021': {
+                2021: {
                   hours: '',
                   rate: ''
                 }
@@ -785,25 +787,25 @@ const apd = {
             name: 'Gateway Vendor Inc.',
             start: '',
             totalCost: 7473747,
-            years: { '2020': 500000, '2021': 0 }
+            years: { 2020: 500000, 2021: 0 }
           }
         ],
         costAllocation: {
-          '2020': {
+          2020: {
             ffp: { federal: 90, state: 10 },
             other: 0
           },
-          '2021': {
+          2021: {
             ffp: { federal: 90, state: 10 },
             other: 0
           }
         },
         costAllocationNarrative: {
           methodology: '',
-          '2020': {
+          2020: {
             otherSources: ''
           },
-          '2021': {
+          2021: {
             otherSources: ''
           }
         },
@@ -813,7 +815,7 @@ const apd = {
           {
             description: '',
             category: 'Hardware, software, and licensing',
-            years: { '2020': 0, '2021': 0 }
+            years: { 2020: 0, 2021: 0 }
           }
         ],
         fundingSource: 'HIE',
@@ -861,25 +863,25 @@ const apd = {
             title: '',
             description: '',
             years: {
-              '2020': { amt: 0, perc: 0 },
-              '2021': { amt: 0, perc: 0 }
+              2020: { amt: 0, perc: 0 },
+              2021: { amt: 0, perc: 0 }
             }
           }
         ],
         summary:
           'The purpose of PH modernization is to provide Medicaid EPs and EHs with the tools to improve the coordination of care, transition of care and the availability of specialty registries; increasing the number of providers attesting for meaningful use.',
         quarterlyFFP: {
-          '2020': {
-            '1': { combined: 25, contractors: 25, inHouse: 25 },
-            '2': { combined: 25, contractors: 25, inHouse: 25 },
-            '3': { combined: 25, contractors: 25, inHouse: 25 },
-            '4': { combined: 25, contractors: 25, inHouse: 25 }
+          2020: {
+            1: { combined: 25, contractors: 25, inHouse: 25 },
+            2: { combined: 25, contractors: 25, inHouse: 25 },
+            3: { combined: 25, contractors: 25, inHouse: 25 },
+            4: { combined: 25, contractors: 25, inHouse: 25 }
           },
-          '2021': {
-            '1': { combined: 25, contractors: 25, inHouse: 25 },
-            '2': { combined: 25, contractors: 25, inHouse: 25 },
-            '3': { combined: 25, contractors: 25, inHouse: 25 },
-            '4': { combined: 25, contractors: 25, inHouse: 25 }
+          2021: {
+            1: { combined: 25, contractors: 25, inHouse: 25 },
+            2: { combined: 25, contractors: 25, inHouse: 25 },
+            3: { combined: 25, contractors: 25, inHouse: 25 },
+            4: { combined: 25, contractors: 25, inHouse: 25 }
           }
         }
       },
@@ -892,41 +894,41 @@ const apd = {
             end: '',
             hourly: {
               data: {
-                '2020': { hours: '', rate: '' },
-                '2021': { hours: '', rate: '' }
+                2020: { hours: '', rate: '' },
+                2021: { hours: '', rate: '' }
               },
               useHourly: false
             },
             name: 'Tech Consulting Inc.',
             start: '',
             totalCost: 264574,
-            years: { '2020': 450000, '2021': 150000 }
+            years: { 2020: 450000, 2021: 150000 }
           },
           {
             description: 'MITA 3.0 implementation.',
             end: '',
             hourly: {
               data: {
-                '2020': { hours: '', rate: '' },
-                '2021': { hours: '', rate: '' }
+                2020: { hours: '', rate: '' },
+                2021: { hours: '', rate: '' }
               },
               useHourly: false
             },
             name: 'TBD',
             start: '',
             totalCost: 64574,
-            years: { '2020': 200000, '2021': 500000 }
+            years: { 2020: 200000, 2021: 500000 }
           }
         ],
         costAllocation: {
-          '2020': {
+          2020: {
             ffp: {
               federal: 50,
               state: 50
             },
             other: 0
           },
-          '2021': {
+          2021: {
             ffp: {
               federal: 90,
               state: 10
@@ -936,10 +938,10 @@ const apd = {
         },
         costAllocationNarrative: {
           methodology: '',
-          '2020': {
+          2020: {
             otherSources: ''
           },
-          '2021': {
+          2021: {
             otherSources: ''
           }
         },
@@ -949,7 +951,7 @@ const apd = {
           {
             description: '',
             category: 'Equipment and supplies',
-            years: { '2020': 25000, '2021': 25000 }
+            years: { 2020: 25000, 2021: 25000 }
           }
         ],
         fundingSource: 'HIT',
@@ -985,46 +987,74 @@ const apd = {
             title: 'State MITA Person',
             description: '1',
             years: {
-              '2020': { amt: 100000, perc: 0.5 },
-              '2021': { amt: 100000, perc: 1 }
+              2020: { amt: 100000, perc: 0.5 },
+              2021: { amt: 100000, perc: 1 }
             }
           }
         ],
         summary:
           'DHSS is requesting funding to support the completion of a MITA 3.0 State Self-Assessment. Initially, funding will be utilized to support the development of a competitive procurement and support of planning efforts for the MITA 3.0 SS-A.',
         quarterlyFFP: {
-          '2020': {
-            '1': { combined: 25, contractors: 25, inHouse: 25 },
-            '2': { combined: 25, contractors: 25, inHouse: 25 },
-            '3': { combined: 25, contractors: 25, inHouse: 25 },
-            '4': { combined: 25, contractors: 25, inHouse: 25 }
+          2020: {
+            1: { combined: 25, contractors: 25, inHouse: 25 },
+            2: { combined: 25, contractors: 25, inHouse: 25 },
+            3: { combined: 25, contractors: 25, inHouse: 25 },
+            4: { combined: 25, contractors: 25, inHouse: 25 }
           },
-          '2021': {
-            '1': { combined: 25, contractors: 25, inHouse: 25 },
-            '2': { combined: 25, contractors: 25, inHouse: 25 },
-            '3': { combined: 25, contractors: 25, inHouse: 25 },
-            '4': { combined: 25, contractors: 25, inHouse: 25 }
+          2021: {
+            1: { combined: 25, contractors: 25, inHouse: 25 },
+            2: { combined: 25, contractors: 25, inHouse: 25 },
+            3: { combined: 25, contractors: 25, inHouse: 25 },
+            4: { combined: 25, contractors: 25, inHouse: 25 }
           }
         }
       }
     ],
-    federalCitations: {},
+    federalCitations: {
+      procurement: [
+        { title: '42 CFR Part 495.348', checked: true, explanation: '' },
+        { title: 'SMM Section 11267', checked: true, explanation: '' },
+        { title: '45 CFR 95.613', checked: false, explanation: 'somethings' },
+        { title: '45 CFR 75.326', checked: true, explanation: '' }
+      ],
+      recordsAccess: [
+        { title: '42 CFR Part 495.350', checked: true, explanation: '' },
+        { title: '42 CFR Part 495.352', checked: true, explanation: '' },
+        { title: '42 CFR Part 495.346', checked: true, explanation: '' },
+        { title: '42 CFR 433.112(b)', checked: true, explanation: '' },
+        { title: '45 CFR Part 95.615', checked: true, explanation: '' },
+        { title: 'SMM Section 11267', checked: true, explanation: '' }
+      ],
+      softwareRights: [
+        { title: '42 CFR 495.360', checked: true, explanation: '' },
+        { title: '45 CFR 95.617', checked: true, explanation: '' },
+        { title: '42 CFR Part 431.300', checked: true, explanation: '' },
+        { title: '42 CFR Part 433.112', checked: true, explanation: '' }
+      ],
+      security: [
+        {
+          title: '45 CFR 164 Security and Privacy',
+          checked: true,
+          explanation: ''
+        }
+      ]
+    },
     incentivePayments: {
       ehAmt: {
-        '2020': { '1': 0, '2': 0, '3': 0, '4': 0 },
-        '2021': { '1': 0, '2': 0, '3': 0, '4': 0 }
+        2020: { 1: 0, 2: 0, 3: 0, 4: 0 },
+        2021: { 1: 0, 2: 0, 3: 0, 4: 0 }
       },
       ehCt: {
-        '2020': { '1': 0, '2': 0, '3': 0, '4': 0 },
-        '2021': { '1': 0, '2': 0, '3': 0, '4': 0 }
+        2020: { 1: 0, 2: 0, 3: 0, 4: 0 },
+        2021: { 1: 0, 2: 0, 3: 0, 4: 0 }
       },
       epAmt: {
-        '2020': { '1': 0, '2': 0, '3': 0, '4': 0 },
-        '2021': { '1': 0, '2': 0, '3': 0, '4': 0 }
+        2020: { 1: 0, 2: 0, 3: 0, 4: 0 },
+        2021: { 1: 0, 2: 0, 3: 0, 4: 0 }
       },
       epCt: {
-        '2020': { '1': 0, '2': 0, '3': 0, '4': 0 },
-        '2021': { '1': 0, '2': 0, '3': 0, '4': 0 }
+        2020: { 1: 0, 2: 0, 3: 0, 4: 0 },
+        2021: { 1: 0, 2: 0, 3: 0, 4: 0 }
       }
     },
     keyPersonnel: [
@@ -1033,18 +1063,18 @@ const apd = {
         position: 'HIT Coordinator',
         email: 'JimPushesButtons@tycho.com',
         isPrimary: true,
-        fte: { '2020': 1, '2021': 1 },
+        fte: { 2020: 1, 2021: 1 },
         hasCosts: true,
-        costs: { '2020': 100000, '2021': 100000 }
+        costs: { 2020: 100000, 2021: 100000 }
       },
       {
         name: 'Fred Johnson',
         position: 'State Medicaid Director',
         email: 'FJohnson@tycho.com',
         isPrimary: false,
-        fte: { '2020': 0.3, '2021': 0.3 },
+        fte: { 2020: 0.3, 2021: 0.3 },
         hasCosts: false,
-        costs: { '2020': 0, '2021': 0 }
+        costs: { 2020: 0, 2021: 0 }
       }
     ],
     narrativeHIE:
@@ -1054,28 +1084,28 @@ const apd = {
     narrativeMMIS:
       "<p><strong><ins>Medicaid Claims Data Feed to the HIE</ins></strong></p>\n<p>Currently, Tycho does not have an All-Payers’ Claims database that can provide consumers and DHSS with consolidated claims data. To provide healthcare statistical information and support MU, Tycho plans to interface the MMIS Data Warehouse (DW) to the HIE so that Medicaid claims data can be made available to consumers in their Personal Health Record (PHR) within the HIE. This initiative will require contractor assistance from Conduent, LLC to complete required MMIS changes as well as Tycho's HIE Service provider, Orion Health to implement the necessary HIE updates. DHSS IT Planning Office will coordinate the efforts of the three vendors.</p>",
     previousActivityExpenses: {
-      '2017': {
+      2017: {
         hithie: { federalActual: 140000, totalApproved: 280000 },
         mmis: {
-          '50': { federalActual: 23445, totalApproved: 82545 },
-          '75': { federalActual: 23440, totalApproved: 75340 },
-          '90': { federalActual: 235720, totalApproved: 262460 }
+          50: { federalActual: 23445, totalApproved: 82545 },
+          75: { federalActual: 23440, totalApproved: 75340 },
+          90: { federalActual: 235720, totalApproved: 262460 }
         }
       },
-      '2018': {
+      2018: {
         hithie: { federalActual: 146346, totalApproved: 234526 },
         mmis: {
-          '50': { federalActual: 129387, totalApproved: 375445 },
-          '75': { federalActual: 413246, totalApproved: 654455 },
-          '90': { federalActual: 614544, totalApproved: 863455 }
+          50: { federalActual: 129387, totalApproved: 375445 },
+          75: { federalActual: 413246, totalApproved: 654455 },
+          90: { federalActual: 614544, totalApproved: 863455 }
         }
       },
-      '2019': {
+      2019: {
         hithie: { federalActual: 320000, totalApproved: 540000 },
         mmis: {
-          '50': { federalActual: 0, totalApproved: 0 },
-          '75': { federalActual: 0, totalApproved: 0 },
-          '90': { federalActual: 0, totalApproved: 0 }
+          50: { federalActual: 0, totalApproved: 0 },
+          75: { federalActual: 0, totalApproved: 0 },
+          90: { federalActual: 0, totalApproved: 0 }
         }
       }
     },
