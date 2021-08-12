@@ -81,7 +81,7 @@ const config = {
   devServer: {
     contentBase: './src',
     historyApiFallback: true,
-    host: '0.0.0.0',
+    host: 'web',
     hot: true,
     port: '8001'
   }

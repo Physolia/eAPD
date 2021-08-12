@@ -1,16 +1,22 @@
 #!/usr/bin/env sh
 
 export NODE_ENV=development
-export API_URL="http://localhost:8081"
+export API_URL="http://api:8081"
 export DEV_DB_NAME="apd_cypress_test"
 export CYPRESS_TESTS=true
 
-docker-compose -f ../docker-compose.yml up -d
+# Bring up the containers
+docker compose -f ../docker-compose.cypress.yml up web -d
 
-docker-compose -f ../docker-compose.yml exec db sh -c 'PGPASSWORD=cms psql -U postgres -tc "DROP DATABASE IF EXISTS apd_cypress_test;"'
-docker-compose -f ../docker-compose.yml exec db sh -c 'PGPASSWORD=cms psql -U postgres -tc "CREATE DATABASE apd_cypress_test;"'
+# drop the DB
+docker compose -f ../docker-compose.yml exec db sh -c 'PGPASSWORD=cms psql -U postgres -tc "DROP DATABASE IF EXISTS apd_cypress_test;"'
+docker compose -f ../docker-compose.cypress.yml exec db sh -c 'PGPASSWORD=cms psql -U postgres -tc "CREATE DATABASE apd_cypress_test;"'
 
-docker-compose -f ../docker-compose.yml exec -e NODE_ENV=development -e DEV_DB_NAME=apd_cypress_test api npm run migrate
-docker-compose -f ../docker-compose.yml exec -e NODE_ENV=development -e DEV_DB_NAME=apd_cypress_test api npm run seed
+# migrate and seed the db
+docker compose -f ../docker-compose.cypress.yml exec -e NODE_ENV=development -e DEV_DB_NAME=apd_cypress_test api npm run migrate
+docker compose -f ../docker-compose.cypress.yml exec -e NODE_ENV=development -e DEV_DB_NAME=apd_cypress_test api npm run seed
 
-API_URL="http://localhost:8081" npx cypress $1
+# run the tests
+docker compose -f ../docker-compose.cypress.yml run cypress npm run cy:run:ci
+
+

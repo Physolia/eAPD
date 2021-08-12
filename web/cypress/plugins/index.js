@@ -14,8 +14,10 @@
 
 const axios = require('axios');
 const tokens = require('../../../api/seeds/test/tokens.json');
+const knex = require('../../../api/db/knex')
 
 const apiUrl = process.env.API_URL || 'http://localhost:8000';
+const {removeAffiliationsForUser} = require('./dbUtils')
 
 /**
  * @type {Cypress.PluginConfig}
@@ -24,11 +26,9 @@ const apiUrl = process.env.API_URL || 'http://localhost:8000';
 module.exports = (on, config) => {
   on('task', {
     'db:resetnorole': async () => {
-      await axios.delete(`${apiUrl}/cypress/affiliations/norole`, {
-        headers: {
-          Authorization: `Bearer ${tokens.fedadmin}`
-        }
-      });
+      await removeAffiliationsForUser({
+        username: 'norole'
+      })
       return null;
     }
   });
