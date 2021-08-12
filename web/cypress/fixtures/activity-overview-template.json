@@ -19,5 +19,55 @@
   "a2_end_y": 2034,
   "a2_detailed": "With her finger and her thumb",
   "a2_supporting_justifications": "In the shape of an L",
-  "a2_does_not_support_medicaid": "On her forehead"
+  "a2_does_not_support_medicaid": "On her forehead",
+
+  "staff": [
+    {
+      "title": "Project Assistant",
+      "description": "Coordination and document management support daily administrative support such as meeting minutes and scribe, manages project library, scheduling, and correspondence tracking.",
+      "costs": [86000, 88000],
+      "ftes": [1, 1]
+    },
+    {
+      "title": "Accountant III",
+      "description": "Coordinate program state and federal budget and expense reporting, review and validate charges to CMS federal reports.",
+      "costs": [101000, 109000],
+      "ftes": [3, 3]
+    },
+    {
+      "title": "Public Information Officer",
+      "description": "Develop outreach materials including: written, television and radio publications to support outreach for the Medicaid EHR Incentive Program",
+      "costs": [165000, 170000],
+      "ftes": [0.5, 0.5]
+    },
+    {
+      "title": "Medicaid EHR Incentive Program Manager (Medical Assistance Administrator III)",
+      "description": "Data collection and analysis, reporting, planning, service delivery modification, support administration of the EHR Incentive Payment Program including provider application review.",
+      "costs": [110012, 111102],
+      "ftes": [1, 1]
+    }
+  ],
+
+  "expenses": [
+    {
+      "category": "Training and outreach",
+      "costs": [40000, 40000],
+      "description": "Recorded media and radio for supporting outreach."
+    },
+    {
+      "category": "Travel",
+      "costs": [35000, 35000],
+      "description": "Airplane tickets, gasoline, and taxi services."
+    },
+    {
+      "category": "Hardware, software, and licensing",
+      "costs": [40000, 40000],
+      "description": "Purchases of new laptops and licenses for Office software."
+    },
+    {
+      "category": "Equipment and supplies",
+      "costs": [500, 200],
+      "description": "Paper, pens, and pencils."
+    }
+  ]
 }
