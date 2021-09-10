@@ -4,7 +4,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 // to optimize bundle, explicitly importing only the icons used
 import {
   faArrowRight,
+  faCalculator,
   faCheck,
+  faTasks,
   faTimes,
   faCheckCircle,
   faChevronDown,
@@ -12,9 +14,13 @@ import {
   faChevronRight,
   faChevronUp,
   faEdit,
+  faEye,
   faExclamationTriangle,
   faFileAlt,
+  faFolderPlus,
+  faLayerGroup,
   faLock,
+  faPaperPlane,
   faPlusCircle,
   faSignOutAlt,
   faSpinner,
@@ -51,6 +57,7 @@ const UnlockIcon = () => <FontAwesomeIcon icon={faUnlock} />;
 
 export {
   faArrowRight,
+  faCalculator,
   faCheckCircle,
   faChevronDown,
   faChevronLeft,
@@ -59,11 +66,15 @@ export {
   faCircle,
   faClock,
   faEdit,
+  faEye,
   faExclamationTriangle,
+  faFolderPlus,
+  faLayerGroup,
   faLock,
   faPlusCircle,
   faSignOutAlt,
   faSpinner,
+  faTasks,
   faTimesCircle,
   faUnlock,
   Check,
@@ -79,6 +90,7 @@ export {
   faUserCog,
   faUserShield,
   faUserPlus,
+  faPaperPlane,
   faPeopleArrows
 };
 

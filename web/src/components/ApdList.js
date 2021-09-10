@@ -10,6 +10,7 @@ import { createApd, deleteApd, selectApd } from '../actions/app';
 import { t } from '../i18n';
 import { selectApdDashboard, selectApds } from '../reducers/apd.selectors';
 import UpgradeBrowser from './UpgradeBrowser';
+import HelpGuide from './HelpGuide';
 import Loading from './Loading';
 
 const ApdList = ({
@@ -55,6 +56,7 @@ const ApdList = ({
         <main id="start-main-content">
           <div className="ds-u-padding-top--2">
             <UpgradeBrowser />
+            <HelpGuide />
             {error && (
               <Alert variation="error" role="alert">
                 {error}
