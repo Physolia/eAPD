@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import TagManager from 'react-gtm-module';
 
 import ApdList from '../components/ApdList';
+import HelpGuide from '../components/HelpGuide';
 import AffiliationStatus from '../components/AffiliationStatus';
 import { getUserStateOrTerritoryStatus } from '../reducers/user.selector';
 import { AFFILIATION_STATUSES } from '../constants';
@@ -20,7 +21,12 @@ const StateDashboard = ({ state, role, approvalStatus }) => {
 
   return (
     <Fragment>
-      {isApproved && <ApdList />}
+      {isApproved && (
+        <Fragment>
+          <HelpGuide />
+          <ApdList />
+        </Fragment>
+      )}
       {!isApproved && <AffiliationStatus />}
     </Fragment>
   );

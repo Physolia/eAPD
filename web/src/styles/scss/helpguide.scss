@@ -1,0 +1,22 @@
+.eapd-help {
+  margin-top: 5rem;
+  margin-left: 3rem;
+  margin-right: 3rem;
+  border-radius: 12px;
+  color: #323A45;
+  background-color: #2c398c;
+  background-image: url("data:image/svg+xml,%3Csvg width='120' height='120' viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M15 -6.55671e-07L-6.55671e-07 15L0 -1.31134e-06L15 -6.55671e-07ZM30 15L15 30L30 30L30 15Z' fill='%2334418e' fill-opacity='0.4' fill-rule='evenodd'/%3E%3C/svg%3E");
+}
+
+.eapd-help .ds-l-row,
+.eapd-help .ds-l-col {
+  border-radius: 12px;
+}
+
+.eapd-help-section-header {
+  flex-basis: 100%;
+}
+
+.eapd-help-h1-border {
+  border-bottom: 6px solid #FDB124;
+}

@@ -56,7 +56,7 @@ const ApdList = ({
         <main id="start-main-content">
           <div className="ds-u-padding-top--2">
             <UpgradeBrowser />
-            <HelpGuide />
+            {/* <HelpGuide /> */}
             {error && (
               <Alert variation="error" role="alert">
                 {error}
