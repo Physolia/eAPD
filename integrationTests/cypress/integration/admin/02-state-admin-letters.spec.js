@@ -43,7 +43,7 @@ describe('state admin letters table', function () {
   });
   
   it('allows filtering by status', function () {
-    cy.get('#state-admin-letters td:contains(No Match)').should('have.length', 2);
+    cy.get('#state-admin-letters td:contains(No Match)').should('have.length', 1);
     cy.get('#state-admin-letters td:contains(Pending Match)').should('have.length', 1);
     
     getInputByLabel('Status').select('Pending Match');    
@@ -51,11 +51,11 @@ describe('state admin letters table', function () {
     cy.get('#state-admin-letters td:contains(Pending Match)').should('have.length', 1);
     
     getInputByLabel('Status').select('No Match');
-    cy.get('#state-admin-letters td:contains(No Match)').should('have.length', 2);
+    cy.get('#state-admin-letters td:contains(No Match)').should('have.length', 1);
     cy.get('#state-admin-letters td:contains(Pending Match)').should('have.length', 0);
     
     getInputByLabel('Status').select('All');
-    cy.get('#state-admin-letters td:contains(No Match)').should('have.length', 2);
+    cy.get('#state-admin-letters td:contains(No Match)').should('have.length', 1);
     cy.get('#state-admin-letters td:contains(Pending Match)').should('have.length', 1);
   });  
   
