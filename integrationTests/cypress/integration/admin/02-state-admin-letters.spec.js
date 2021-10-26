@@ -24,11 +24,11 @@ describe('state admin letters table', function () {
     // Filter labels
     cy.get('#state-admin-letters').contains('Status');
     cy.get('#state-admin-letters').contains('State');
-    cy.get('#state-admin-letters').contains('Search All');
+    cy.get('#state-admin-letters').contains('Search');
     
     getInputByLabel('Status').should('have.value', '');
     getInputByLabel('State').should('have.value', '');
-    getInputByLabel('Search All').should('have.value', '');
+    getInputByLabel('Search').should('have.value', '');
         
     // Table column headers
     cy.get('#state-admin-letters').contains('Name');
@@ -51,42 +51,43 @@ describe('state admin letters table', function () {
     cy.get('#state-admin-letters td:contains(Pending Match)').should('have.length', 1);
     
     getInputByLabel('Status').select('No Match');
-    cy.get('#state-admin-letters td:contains(No Match)').should('have.length', 2);
+    cy.get('#state-admin-letters td:contains(No Match)').should('have.length', 1);
     cy.get('#state-admin-letters td:contains(Pending Match)').should('have.length', 0);
     
     getInputByLabel('Status').select('All');
-    cy.get('#state-admin-letters td:contains(No Match)').should('have.length', 2);
+    cy.get('#state-admin-letters td:contains(No Match)').should('have.length', 1);
     cy.get('#state-admin-letters td:contains(Pending Match)').should('have.length', 1);
   });  
   
   it('allows filtering by state', function () {
-    cy.get('#state-admin-letters td:contains(MD)').should('be.visible');
     cy.get('#state-admin-letters td:contains(AK)').should('be.visible');
     cy.get('#state-admin-letters td:contains(TN)').should('be.visible');
-    
-    getInputByLabel('State').select('MD');
-    cy.get('#state-admin-letters td:contains(MD)').should('be.visible');
-    cy.get('#state-admin-letters td:contains(AK)').should('have.length', 0);
-    cy.get('#state-admin-letters td:contains(TN)').should('have.length', 0);
-    
+
     getInputByLabel('State').select('AK');
-    cy.get('#state-admin-letters td:contains(MD)').should('have.length', 0);
     cy.get('#state-admin-letters td:contains(AK)').should('be.visible');
     cy.get('#state-admin-letters td:contains(TN)').should('have.length', 0);
-    
+
+
+    getInputByLabel('State').select('TN');
+    cy.get('#state-admin-letters td:contains(AK)').should('have.length', 0);
+    cy.get('#state-admin-letters td:contains(TN)').should('be.visible');
+
     getInputByLabel('State').select('All');
-    cy.get('#state-admin-letters td:contains(MD)').should('be.visible');
     cy.get('#state-admin-letters td:contains(AK)').should('be.visible');
     cy.get('#state-admin-letters td:contains(TN)').should('be.visible');
   });
   
   it('allows search filtering', function () {
-    cy.get('#state-admin-letters td:contains(Leanne Graham)').should('be.visible');
     cy.get('#state-admin-letters td:contains(State Admin)').should('have.length', 2);
-    
-    getInputByLabel('Search All').type('Leanne');
-    
-    cy.get('#state-admin-letters td:contains(Leanne Graham)').should('be.visible');
+
+    getInputByLabel('Search').type('Leanne');
+
     cy.get('#state-admin-letters td:contains(State Admin)').should('have.length', 0);
+
+    getInputByLabel('Search').clear().type('pending');
+
+    cy.get('#state-admin-letters td:contains(State Admin)').should('have.length', 1);
   });
+
+  // it('allows ')
 });
