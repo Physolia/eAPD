@@ -43,7 +43,7 @@ describe('state admin letters table', function () {
   });
   
   it('allows filtering by status', function () {
-    cy.get('#state-admin-letters td:contains(No Match)').should('have.length', 2);
+    cy.get('#state-admin-letters td:contains(No Match)').should('have.length', 1);
     cy.get('#state-admin-letters td:contains(Pending Match)').should('have.length', 1);
     
     getInputByLabel('Status').select('Pending Match');    
@@ -89,5 +89,12 @@ describe('state admin letters table', function () {
     cy.get('#state-admin-letters td:contains(State Admin)').should('have.length', 1);
   });
 
-  // it('allows ')
+  it.only('shows possible match if present and allows matching', function () {
+    getInputByLabel('Search').clear().type('pending');
+
+    cy.get('.ds-c-button')
+      .contains('Match To User')
+      .should('have.length', 1)
+      .click();
+  });
 });
