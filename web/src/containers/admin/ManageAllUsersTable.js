@@ -25,7 +25,7 @@ const makeRow = record => {
     name: record.displayName,
     email: record.email,
     phone: record.primaryPhone,
-    state: record.stateId,
+    stateId: record.stateId,
     status: record.status,
     role: record.role,
     actions: record.affiliationId,
@@ -115,7 +115,7 @@ const ManageAllUsersTable = ({
       },
       {
         Header: 'State',
-        accessor: 'state'
+        accessor: 'stateId'
       },
       {
         Header: 'Role',
@@ -246,7 +246,23 @@ const ManageAllUsersTable = ({
                       return <td {...cell.getCellProps()}>{cell.render('Cell')}</td>
                     })}
                   </tr>
-                </Fragment>
+                {row.subRows.map((row, i) => {
+                  prepareRow(row);
+                  console.log("subRow", row)
+                  if (i === 0) {
+                    return null;
+                  }
+                  return (
+                    <Fragment key={row.id}>
+                      <tr {...row.getRowProps()}>
+                        {row.cells.map(cell => {
+                          return <td {...cell.getCellProps()}>{cell.render('Cell')}</td>
+                        })}
+                      </tr>
+                    </Fragment>
+                  )
+                })}
+                </Fragment>                
               )
             })}
           </TableBody>
