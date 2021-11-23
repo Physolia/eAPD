@@ -14,8 +14,8 @@ import { getUserStateOrTerritory } from '../../reducers/user.selector';
 import ManageRoleDialog from './ManageRoleDialog';
 import ConfirmationDialog from './ConfirmationDialog';
 import ManageAllUsersTable from './ManageAllUsersTable';
-import StateAdminLetters from './StateAdminLetters';
 
+import StateAdminLetters from './StateAdminLetters';
 
 const FederalAdmin = ({
   currentState,

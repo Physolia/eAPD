@@ -1,14 +1,88 @@
 /* eslint-disable react/prop-types */
 import PropTypes from 'prop-types';
-import React, { Fragment } from 'react';
+import React, { Fragment, useState, useMemo, useEffect } from 'react';
 
+import {
+  useTable,
+  useFilters,
+  useGlobalFilter,
+  useSortBy,
+  useAsyncDebounce
+} from 'react-table';
+  
 import {
   Table,
   TableHead,
   TableRow,
   TableCell,
-  TableBody
+  TableBody,
+  TextField
 } from '@cmsgov/design-system';
+
+const makeRow = record => {
+  return {
+    id: record.id,
+    name: record.displayName,
+    email: record.email,
+    phone: record.primaryPhone,
+    state: record.stateId,
+    status: record.status,
+    role: record.role,
+    actions: record.affiliationId,
+    subRows: record.affiliations
+  };
+};
+  
+const makeData = payload => {
+  return payload.map(record => {
+    return {
+      ...makeRow(record)
+    };
+  });
+};
+  
+const GlobalFilter = ({
+  globalFilter,
+  setGlobalFilter,
+}) => {
+  const [value, setValue] = React.useState(globalFilter)
+  
+  const onChange = useAsyncDebounce(val => {
+    setGlobalFilter(val || undefined)
+  }, 200)
+
+  return (
+    <span>
+      <TextField
+        name="globalFilter"
+        value={value || ""}
+        onChange={e => {
+          setValue(e.target.value);
+          onChange(e.target.value);
+        }}
+        label="Search"
+      />
+    </span>
+  );
+};
+
+GlobalFilter.propTypes = {
+  globalFilter: PropTypes.func.isRequired,
+  setGlobalFilter: PropTypes.func.isRequired
+};
+
+const SortIndicator = ({ canSort, isSorted, isSortedDesc }) => {
+    if (canSort) {
+      if (isSorted) {
+        if (isSortedDesc) {
+          return ' ▾';
+        }
+        return ' ▴';
+      }
+      return ' ⬍';
+    }
+    return '';   
+  };
 
 const ManageAllUsersTable = ({
   tab,
@@ -17,8 +91,69 @@ const ManageAllUsersTable = ({
   actions,
   currentUser
 }) => {
+  const [tableData, setTableData] = useState([]);
+  
+  useEffect(() => {
+    setTableData(affiliations);
+  }, [isFetching]);
+  
+  
+  const columns = React.useMemo(
+    () => [
+      {
+        Header: 'Name',
+        accessor: 'name'
+      },
+      {
+        Header: 'Email',
+        accessor: 'email'
+      },
+      {
+        Header: 'Phone',
+        accessor: 'phone',
+        disableSortBy: true
+      },
+      {
+        Header: 'State',
+        accessor: 'state'
+      },
+      {
+        Header: 'Role',
+        accessor: 'role'
+      },
+      {
+        Header: 'Status',
+        accessor: 'status'
+      },
+      {
+        Header: 'Actions',
+        accessor: 'actions',
+        disableSortBy: true
+      },
+    ],
+    []
+  );
+  
+  const data = useMemo(() => makeData(tableData), [tableData]);
+  
+  const {
+    getTableProps,
+    getTableBodyProps,
+    headerGroups,
+    rows,
+    prepareRow,
+    state: { globalFilter },
+    setGlobalFilter
+  } = useTable(
+    { 
+     columns, 
+     data
+    },
+    useFilters,
+    useGlobalFilter
+  );
+    
   const { id: currentUserId, activities: currentUserActivities } = currentUser;
-
   
   const showActions = affiliation => {
     return (
@@ -27,12 +162,12 @@ const ManageAllUsersTable = ({
     );
   };
   
-  const AffiliationFirstRow = ({ primaryAffiliation, affiliation }) => {
+  const AffiliationFirstRow = ({ primaryAffiliation, affiliation, booger }) => {
     return (
-      <TableRow className={primaryAffiliation.affiliations.length > 1 ? "all-users-table--first-row-multi" : ""} key={affiliation.id}>
-        <TableCell component='th' style= {{ 'verticalAlign': 'top' }} rowSpan={primaryAffiliation.affiliations.length}>{primaryAffiliation.displayName}</TableCell>
-        <TableCell component='td' style= {{ 'verticalAlign': 'top' }} rowSpan={primaryAffiliation.affiliations.length}>{primaryAffiliation.email}</TableCell>
-        <TableCell component='td' style= {{ 'verticalAlign': 'top' }} rowSpan={primaryAffiliation.affiliations.length}>{primaryAffiliation.primaryPhone}</TableCell>
+      <TableRow className={primaryAffiliation.subRows.length > 1 ? "all-users-table--first-row-multi" : ""} key={affiliation.id}>
+        <TableCell component='th' style= {{ 'verticalAlign': 'top' }} rowSpan={primaryAffiliation.subRows.length}>{primaryAffiliation.name}</TableCell>
+        <TableCell component='td' style= {{ 'verticalAlign': 'top' }} rowSpan={primaryAffiliation.subRows.length}>{primaryAffiliation.email}</TableCell>
+        <TableCell component='td' style= {{ 'verticalAlign': 'top' }} rowSpan={primaryAffiliation.subRows.length}>{primaryAffiliation.phone}</TableCell>
         <TableCell className="all-users-table--state">{affiliation.stateId.toUpperCase()}</TableCell>
         {tab === 'active' ? <TableCell className="all-users-table--role">{affiliation.role}</TableCell> : null}
         {tab === 'inactive' ? <TableCell className="all-users-table--status">{affiliation.status}</TableCell> : null}
@@ -42,9 +177,10 @@ const ManageAllUsersTable = ({
       </TableRow>
     )
   }
+  
   const AffiliationRow = ({ primaryAffiliation, affiliation }) => {
     return (
-      <TableRow className={primaryAffiliation.affiliations.length > 1 ? "all-users-table--row-multi" : ""} key={affiliation.id}>
+      <TableRow className={primaryAffiliation.subRows.length > 1 ? "all-users-table--row-multi" : ""} key={affiliation.id}>
         <TableCell className="all-users-table--state">{affiliation.stateId.toUpperCase()}</TableCell>
         {tab === 'active' ? <TableCell className="all-users-table--role">{affiliation.role}</TableCell> : null}
         {tab === 'inactive' ? <TableCell className="all-users-table--status">{affiliation.status}</TableCell> : null}
@@ -80,7 +216,14 @@ const ManageAllUsersTable = ({
         <p>No users on this tab at this time</p>
       )}
       {!isFetching && affiliations.length > 0 && (
-        <Table borderless className="all-users-table">
+        <div>
+        <div className="ds-u-display--flex ds-u-justify-content--between" style={{maxWidth: '30rem'}}>
+          <GlobalFilter
+             globalFilter={globalFilter}
+             setGlobalFilter={setGlobalFilter}
+          />
+        </div>
+        <Table {...getTableProps()} borderless className="all-users-table">
           <TableHead>
             <TableRow>
               <TableCell>Name</TableCell>
@@ -92,19 +235,24 @@ const ManageAllUsersTable = ({
               <TableCell>Actions</TableCell>
             </TableRow>
           </TableHead>
-          <TableBody>
-            {affiliations.map(primaryAffiliation => (
-              <Fragment key={primaryAffiliation.id}>
-                {primaryAffiliation.affiliations.map((affiliation, index) => {
-                  if (index === 0) {
-                    return (<AffiliationFirstRow key={affiliation.id} primaryAffiliation={primaryAffiliation} affiliation={affiliation} />)
-                  }
-                  return (<AffiliationRow key={affiliation.id} primaryAffiliation={primaryAffiliation} affiliation={affiliation} />)
-                })}
-              </Fragment>
-            ))}
+          <TableBody {...getTableBodyProps()}>
+            {rows.map((row, i) => {
+              prepareRow(row);
+              console.log("row", row);
+              return (
+                <Fragment key={row.id}>
+                  {row.original.subRows.map((affiliation, index) => {
+                    if (index === 0) {
+                      return (<AffiliationFirstRow key={affiliation.id} primaryAffiliation={row.original} affiliation={affiliation} />)
+                    }
+                    return (<AffiliationRow key={affiliation.id} primaryAffiliation={row.original} affiliation={affiliation} />)
+                  })}
+                </Fragment>
+              )
+            })}
           </TableBody>
         </Table>
+        </div>
       )}
     </Fragment>
   );
