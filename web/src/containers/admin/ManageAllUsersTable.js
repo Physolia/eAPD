@@ -241,12 +241,11 @@ const ManageAllUsersTable = ({
               console.log("row", row);
               return (
                 <Fragment key={row.id}>
-                  {row.original.subRows.map((affiliation, index) => {
-                    if (index === 0) {
-                      return (<AffiliationFirstRow key={affiliation.id} primaryAffiliation={row.original} affiliation={affiliation} />)
-                    }
-                    return (<AffiliationRow key={affiliation.id} primaryAffiliation={row.original} affiliation={affiliation} />)
-                  })}
+                  <tr {...row.getRowProps()}>
+                    {row.cells.map(cell => {
+                      return <td {...cell.getCellProps()}>{cell.render('Cell')}</td>
+                    })}
+                  </tr>
                 </Fragment>
               )
             })}
