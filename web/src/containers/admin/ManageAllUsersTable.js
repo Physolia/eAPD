@@ -11,6 +11,7 @@ import {
 } from 'react-table';
   
 import {
+  Dropdown,
   Table,
   TableHead,
   TableRow,
@@ -71,6 +72,45 @@ GlobalFilter.propTypes = {
   setGlobalFilter: PropTypes.func.isRequired
 };
 
+const SelectColumnFilter = ({
+    column: { filterValue, setFilter, preFilteredRows, id, Header }
+  }) => {
+    const options = React.useMemo(() => {
+      const opts = new Set();
+      preFilteredRows.forEach(row => {
+        opts.add(row.values[id]);
+      });
+      return [...opts.values()];
+    }, [id, preFilteredRows]);
+  
+    return (
+      <Dropdown
+        name="dropdownFilter"
+        label={Header}
+        value={filterValue}
+        options={[]}
+        onChange={e => {
+          setFilter(e.target.value || undefined);
+        }}
+      >
+        <option value="">All</option>
+        {options.map(option => (
+          <option key={option} value={option}>
+            {option}
+          </option>
+        ))}
+      </Dropdown>
+    );
+  };
+  
+  SelectColumnFilter.propTypes = {
+    column: PropTypes.array
+  };
+  
+  SelectColumnFilter.defaultProps = {
+    column: []
+  };
+  
 const SortIndicator = ({ canSort, isSorted, isSortedDesc }) => {
     if (canSort) {
       if (isSorted) {
@@ -115,7 +155,9 @@ const ManageAllUsersTable = ({
       },
       {
         Header: 'State',
-        accessor: 'stateId'
+        accessor: 'stateId',
+        Filter: SelectColumnFilter,
+        filter: 'includes'
       },
       {
         Header: 'Role',
@@ -150,7 +192,8 @@ const ManageAllUsersTable = ({
      data
     },
     useFilters,
-    useGlobalFilter
+    useGlobalFilter,
+    useSortBy
   );
     
   const { id: currentUserId, activities: currentUserActivities } = currentUser;
@@ -217,24 +260,27 @@ const ManageAllUsersTable = ({
       )}
       {!isFetching && affiliations.length > 0 && (
         <div>
-        <div className="ds-u-display--flex ds-u-justify-content--between" style={{maxWidth: '30rem'}}>
+        <div className="ds-u-display--flex ds-u-justify-content--between" style={{maxWidth: '20rem'}}>
+          {headerGroups[0].headers.find(item => item.Header === 'State').render('Filter')}
           <GlobalFilter
              globalFilter={globalFilter}
              setGlobalFilter={setGlobalFilter}
           />
         </div>
         <Table {...getTableProps()} borderless className="all-users-table">
-          <TableHead>
-            <TableRow>
-              <TableCell>Name</TableCell>
-              <TableCell>Email</TableCell>
-              <TableCell>Phone Number</TableCell>
-              <TableCell>State</TableCell>
-              {tab === 'active' ? <TableCell>Role</TableCell> : null}
-              {tab === 'inactive' ? <TableCell>Status</TableCell> : null}
-              <TableCell>Actions</TableCell>
-            </TableRow>
-          </TableHead>
+        <TableHead>
+           {headerGroups.map(headerGroup => (
+             <TableRow {...headerGroup.getHeaderGroupProps()}>
+               {headerGroup.headers.map(column => (
+                 <TableCell {...column.getHeaderProps(column.getSortByToggleProps())}>
+                   {column.render('Header')}
+                   <SortIndicator canSort={column.canSort} isSorted={column.isSorted} isSortedDesc={column.isSortedDesc} />
+                 </TableCell>
+               ))}
+             </TableRow>
+            ))}
+         </TableHead>
+        
           <TableBody {...getTableBodyProps()}>
             {rows.map((row, i) => {
               prepareRow(row);
@@ -246,22 +292,22 @@ const ManageAllUsersTable = ({
                       return <td {...cell.getCellProps()}>{cell.render('Cell')}</td>
                     })}
                   </tr>
-                {row.subRows.map((row, i) => {
-                  prepareRow(row);
-                  console.log("subRow", row)
-                  if (i === 0) {
-                    return null;
-                  }
-                  return (
-                    <Fragment key={row.id}>
-                      <tr {...row.getRowProps()}>
-                        {row.cells.map(cell => {
-                          return <td {...cell.getCellProps()}>{cell.render('Cell')}</td>
-                        })}
-                      </tr>
-                    </Fragment>
-                  )
-                })}
+                  {row.subRows.map((subRow, i) => {
+                    prepareRow(subRow);
+                    console.log("subRow", subRow);
+                    if (i === 0) {
+                      return null;
+                    }
+                    return (
+                      <Fragment key={subRow.id}>
+                        <tr {...subRow.getRowProps()}>
+                          {subRow.cells.map(cell => {
+                            return <td {...cell.getCellProps()}>{cell.render('Cell')}</td>
+                          })}
+                        </tr>
+                      </Fragment>
+                    )
+                  })}
                 </Fragment>                
               )
             })}
