@@ -79,7 +79,7 @@ const PersonForm = forwardRef(({ index, item, savePerson, years }, ref) => {
           : t(`${tRoot}.labels.noteSecondary`)}
       </p>
       <TextField
-        name="name"
+        name="name for the point of contact."
         cy-data={`apd-state-profile-pocname${index}`}
         label={t(`${tRoot}.labels.name`)}
         value={state.name}
@@ -94,7 +94,7 @@ const PersonForm = forwardRef(({ index, item, savePerson, years }, ref) => {
         onKeyUp={validateSubForm}
       />
       <TextField
-        name="email"
+        name="email for the point of contact."
         cy-data={`apd-state-profile-pocemail${index}`}
         label={t(`${tRoot}.labels.email`)}
         value={state.email}
@@ -109,7 +109,7 @@ const PersonForm = forwardRef(({ index, item, savePerson, years }, ref) => {
         onKeyUp={validateSubForm}
       />
       <TextField
-        name="role"
+        name="role for the point of contact."
         cy-data={`apd-state-profile-pocposition${index}`}
         label={t(`${tRoot}.labels.position`)}
         value={state.position}

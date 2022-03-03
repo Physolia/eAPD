@@ -6,6 +6,8 @@ import { connect } from 'react-redux';
 import TextArea from '../../../components/TextArea';
 import PersonCostForm from '../../../components/PersonCostForm';
 
+import { validateSubForm } from '../../../helpers/subFormValidation';
+
 import {
   savePersonnel as actualSavePersonnel
 } from '../../../actions/editActivity';
@@ -78,23 +80,29 @@ const StatePersonForm = forwardRef(
       <h6 className="ds-h4">Personnel {index + 1}:</h6>
       <TextField
         label="Personnel title"
-        name="title"
+        name="personnel title."
         value={state.title}
         onChange={editTitle}
         className="remove-clearfix"
+        onBlur={validateSubForm}
+        onKeyUp={validateSubForm}
       />
       <TextArea
         label="Description"
         rows={5}
-        name="desc"
+        name="personnel description."
         value={state.description}
         onChange={editDesc}
         className="remove-clearfix"
+        onBlur={validateSubForm}
+        onKeyUp={validateSubForm}
       />
       <PersonCostForm
         items={state.years}
         setCost={getEditCostForYear}
         setFTE={getEditFTEForYear}
+        onBlur={validateSubForm}
+        onKeyUp={validateSubForm}
       />
       <input className="ds-u-visibility--hidden" type="submit" ref={ref} hidden />
     </form>

@@ -35,14 +35,14 @@ const PersonCostForm = ({
           <div className="ds-c-choice__checkedChild ds-u-padding-y--0">
             <DollarField
               label={costLabel}
-              name="cost"
+              name="cost greater than or equal to 0."
               size="medium"
               value={amt}
               onChange={handleCostChange(year)}
             />
             <NumberField
               label={fteLabel}
-              name="ftes"
+              name="FTE number greater than 0."
               size="medium"
               min={0}
               hint={hint}

@@ -9,7 +9,7 @@ instruction:
     For example: If two people work as Analyst Class 1 on this activity 75
     percent of the time, record one entry of 1.5 FTE. If they are in different roles,
     record two separate entries of 0.75 FTE.
-noDataNotice: State staff have not been added for this activity.
+noDataNotice: Add state staff for this activity.
 labels:
   entryNum: '#'
   title: Title
