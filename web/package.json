@@ -8,15 +8,9 @@
     "make-state-icons": "babel-node scripts/stateIcons.js && cp src/data/states-small/* src/static/img/states/",
     "copy-schemas": "cp -r ../schemas src/static",
     "scaffold": "rm -rf dist && mkdir dist && cp -r src/static dist/",
-<<<<<<< HEAD
-    "build": "npm run copy-schemas && npm run scaffold && NODE_ENV=production webpack --config webpack.config.js",
-    "lint": "eslint 'src/**/*.js'",
-    "start": "npm run scaffold && webpack serve --config webpack.config.dev.js --port ${WEB_PORT:-8001}",
-=======
     "build": "yarn run scaffold && NODE_ENV=production webpack --config webpack.config.js",
     "lint": "eslint 'src/**/*.js'",
     "start": "yarn run scaffold && webpack serve --config webpack.config.dev.js --port ${WEB_PORT:-8001}",
->>>>>>> main
     "test:generate-output": "TZ=utc jest --json --outputFile=.jest-test-results.json",
     "test": "TZ=utc jest --collectCoverage",
     "test-watch": "TZ=utc yarn run test:generate-output -- --watch",

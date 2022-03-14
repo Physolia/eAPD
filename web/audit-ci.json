@@ -1,11 +1,5 @@
 {
   "low": true,
-<<<<<<< HEAD
-  "package-manager": "auto",
-  "allowlist": [1041702, 1041517],
-  "_comment": {
-    "1041702": {
-=======
   "package-manager": "yarn",
   "allowlist": [
     "*|@storybook/addon-docs>@mdx-js/mdx>remark-parse>trim",
@@ -23,16 +17,11 @@
   ],
   "_comment": {
     "trim": {
->>>>>>> main
       "advisory": "https://github.com/advisories/GHSA-w5p7-h5w8-2hfq",
       "module": "trim",
       "affects": ["@storybook/addon-docs@6.4.18 - storybook"]
     },
-<<<<<<< HEAD
-    "1041517": {
-=======
     "glob-parent": {
->>>>>>> main
       "advisory": "https://github.com/advisories/GHSA-ww39-953v-wcq6",
       "module": "glob-parent",
       "affects": [
