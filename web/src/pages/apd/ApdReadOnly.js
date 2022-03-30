@@ -13,7 +13,7 @@ import { selectBudget } from '../../reducers/budget.selectors';
 import { getAPDYearRange } from '../../reducers/apd';
 import { getUserStateOrTerritory } from '../../reducers/user.selector';
 import KeyStatePersonnel from './key-state-personnel/KeyStatePersonnel';
-import ApdSummary from '../../containers/viewOnly/ApdSummary';
+import ApdSummary from './export/ReadOnlyApd';
 import PreviousActivities from './previous-activities/PreviousActivities';
 import Activities from './activities/activities-dashboard/ActivitiesDashboardReadOnly';
 import ScheduleSummary from './schedule-summary/ScheduleSummaryReadOnly';
