@@ -61,7 +61,7 @@ cd api
 yarn install --frozen-lockfile --production=true
 # There are some platform-dependent binaries that need to be rebuilt before
 # the knex CLI will work correctly.
-yarn rebuild knex
+yarn add knex --force
 npm i -g newrelic
 cp node_modules/newrelic/newrelic.js ./newrelic.js
 sed -i 's|My Application|eAPD API|g' newrelic.js

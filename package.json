@@ -52,5 +52,8 @@
   "homepage": "https://github.com/CMSgov/eAPD#readme",
   "engines": {
     "node": "16.13.2"
+  },
+  "dependencies": {
+    "knex": "^1.0.5"
   }
 }
